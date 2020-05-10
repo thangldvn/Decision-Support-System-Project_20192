@@ -108,82 +108,83 @@
 
 
 //new
-var data = JSON.parse(OTHER_VARIABLE);
+// var data = JSON.parse(OTHER_VARIABLE);
+
+// Highcharts.setOptions({
+//     global: {
+//         useUTC: true
+//     }
+// });
+// console.log(data);
+// Highcharts.chart('container1', {
+
+//     chart: {
+//         type: 'line',
+//         zoomType: 'x'
+//     },
+//     title: {
+//         text: 'Kết quả dự đoán so với thực tế trong 2 năm gần đây'
+//     },
+//     subtitle: {
+//         text: document.ontouchstart === undefined ?
+//             'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+//     },
+//     xAxis: {
+//         type: 'datetime'
+//     },
+//     yAxis: {
+//         title: {
+//             text: 'Exchange rate'
+//         }
+//     },
+//     legend: {
+//         enabled: true
+//     },
+//     plotOptions: {
+//         // area: {
+//         //     fillColor: {
+//         //         linearGradient: {
+//         //             x1: 0,
+//         //             y1: 0,
+//         //             x2: 0,
+//         //             y2: 1
+//         //         },
+//         //         stops: [
+//         //             [0, Highcharts.getOptions().colors[0]],
+//         //             [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+//         //         ]
+//         //     },
+//         //     marker: {
+//         //         radius: 2
+//         //     },
+//         //     lineWidth: 1,
+//         //     states: {
+//         //         hover: {
+//         //             lineWidth: 1
+//         //         }
+//         //     },
+//         //     threshold: null
+//         // }
+//     },
+
+//     series: [{
+//         //type: 'area',
+//         //lineColor: 'blue',
+//         name: 'real',
+//         data: data['test']
+//     },
+//     {
+//         lineColor: 'red',
+//         //type: 'area',
+//         name: 'predict',
+//         data: data['predict']
+//     }
+//     ]
+// });
+
+
 var result_5y = JSON.parse(RESULT_5Y);
 var pie_result = JSON.parse(PIE_CHART);
-Highcharts.setOptions({
-    global: {
-        useUTC: true
-    }
-});
-console.log(data);
-Highcharts.chart('container1', {
-
-    chart: {
-        type: 'line',
-        zoomType: 'x'
-    },
-    title: {
-        text: 'Kết quả dự đoán so với thực tế trong 2 năm gần đây'
-    },
-    subtitle: {
-        text: document.ontouchstart === undefined ?
-            'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
-    },
-    xAxis: {
-        type: 'datetime'
-    },
-    yAxis: {
-        title: {
-            text: 'Exchange rate'
-        }
-    },
-    legend: {
-        enabled: true
-    },
-    plotOptions: {
-        // area: {
-        //     fillColor: {
-        //         linearGradient: {
-        //             x1: 0,
-        //             y1: 0,
-        //             x2: 0,
-        //             y2: 1
-        //         },
-        //         stops: [
-        //             [0, Highcharts.getOptions().colors[0]],
-        //             [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-        //         ]
-        //     },
-        //     marker: {
-        //         radius: 2
-        //     },
-        //     lineWidth: 1,
-        //     states: {
-        //         hover: {
-        //             lineWidth: 1
-        //         }
-        //     },
-        //     threshold: null
-        // }
-    },
-
-    series: [{
-        //type: 'area',
-        //lineColor: 'blue',
-        name: 'real',
-        data: data['test']
-    },
-    {
-        lineColor: 'red',
-        //type: 'area',
-        name: 'predict',
-        data: data['predict']
-    }
-    ]
-});
-
-
 var seriesOptions = []
 // var seriesOptions1 = []
 var lengthData = Object.keys(result_5y).length
@@ -207,6 +208,7 @@ for (i=5;i< lengthData*2; i++) {
         data: result_5y[Object.keys(result_5y)[i-5]][0],
         visible: false,
         showInLegend: false,
+        color:'red',
         type: 'spline'
     };
 }
@@ -218,7 +220,7 @@ Highcharts.chart('container2', {
         zoomType: 'x'
     },
     title: {
-        text: 'USD to EUR exchange rate over time'
+        text: 'Chỉ số sản xuất công nghiệp theo từng tháng (IPN31152N)'
     },
     subtitle: {
         text: document.ontouchstart === undefined ?
@@ -249,7 +251,7 @@ Highcharts.chart('container2', {
             }
         },
         title: {
-            text: 'rate',
+            text: 'IPN31152N',
             style: {
                 color: Highcharts.getOptions().colors[1]
             }
