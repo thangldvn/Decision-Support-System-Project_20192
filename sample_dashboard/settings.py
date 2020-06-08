@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sales',
     'rest_framework',
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
     #'livereload',
 ]
 

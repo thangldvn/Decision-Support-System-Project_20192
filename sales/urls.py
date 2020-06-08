@@ -10,4 +10,5 @@ urlpatterns = [
     path('sarima_model',views.sarima_model, name='sarima_model'),
     path('future_forecast',views.future_forecast, name='future_forecast'),
     path('register',views.register, name='register'),
+    path('test_table',views.test_table,name='test_table'),
 ]

@@ -19,8 +19,13 @@ from django.urls import path
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+# from django.contrib.auth import views as auth_views
+# from django.conf.urls import url
+
 
 urlpatterns = [
+    # url(r'^login/$', auth_views.login, name='login'),
+    # url(r'^logout/$', auth_views.logout, name='logout'),
     path('admin/', admin.site.urls),
     path('sales/', include("sales.urls")),
     #path('login/', include("sales.urls"))

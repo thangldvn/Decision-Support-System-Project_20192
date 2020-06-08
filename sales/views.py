@@ -65,9 +65,9 @@ def chart1(request):
     #print(item)
         re[str(key)] = [[[round(num[0],2)] for num in grouped_df.get_group(key).values.tolist()]]
         if key == 2015:
-            re[str(key)].append([[round(num[0], 2)] for num in (grouped_df.get_group(key).values-df.groupby(df.index.year).get_group(2014).values)])
+            re[str(key)].append([[round(num[0], 2)] for num in ((grouped_df.get_group(key).values-df.groupby(df.index.year).get_group(2014).values)/df.groupby(df.index.year).get_group(2014).values)*100])
         else:
-            re[str(key)].append([[round(num[0], 2)] for num in (grouped_df.get_group(key).values-grouped_df.get_group(key-1).values)])
+            re[str(key)].append([[round(num[0], 2)] for num in ((grouped_df.get_group(key).values-grouped_df.get_group(key-1).values)/grouped_df.get_group(key-1).values)*100])
 
     
     df_pie = df[df.index.year == 2019]
@@ -120,6 +120,15 @@ def future_forecast(request):
     re['2020'].append([[round(i,2)] for i in  np.array([round(i,2) for i in pred.predicted_mean]) - np.array([i for i in df[df.index.year == 2019]['IPN31152N']])])
     context = {"data":json.dumps(results),"result_changes":json.dumps(re)}
     return render(request,'charts_forecast.html',context=context)
+
+def test_table(request):
+    df = pd.read_csv('sales/data/iris.csv')
+    df = df.head(20)
+    re = {}
+    a=df.to_json(orient='records')
+    re['data']=json.loads(a)
+    context = {"data":json.dumps(re)}
+    return render(request,'tables2.html',context=context)
 
 
 

@@ -220,7 +220,7 @@ Highcharts.chart('container2', {
         zoomType: 'x'
     },
     title: {
-        text: 'Chỉ số sản xuất công nghiệp theo từng tháng (IPN31152N)'
+        text: 'Lượng tiêu thụ kem và đồ tráng miệng đông lạnh theo tháng'
     },
     subtitle: {
         text: document.ontouchstart === undefined ?
@@ -245,13 +245,13 @@ Highcharts.chart('container2', {
 
     yAxis: [{ // Primary yAxis
         labels: {
-            format: '{value}%',
+            format: '{value}',
             style: {
                 color: Highcharts.getOptions().colors[1]
             }
         },
         title: {
-            text: 'IPN31152N',
+            text: 'đơn vị: million gallons',
             style: {
                 color: Highcharts.getOptions().colors[1]
             }

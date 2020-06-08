@@ -97,16 +97,16 @@ seriesOptions[0] = {
     name: Object.keys(result_5y)[0],
     data: result_5y[Object.keys(result_5y)[0]][0],
     visible: false,
-    type: 'spline'
-};
-seriesOptions[1] = {
-    id: Object.keys(result_5y)[0],
-    name: Object.keys(result_5y)[0],
-    data: result_5y[Object.keys(result_5y)[0]][1],
-    visible: false,
-    yAxis: 1,
     type: 'column'
 };
+// seriesOptions[1] = {
+//     id: Object.keys(result_5y)[0],
+//     name: Object.keys(result_5y)[0],
+//     data: result_5y[Object.keys(result_5y)[0]][1],
+//     visible: false,
+//     yAxis: 1,
+//     type: 'column'
+// };
 
 
 // for (i=5;i< lengthData*2; i++) {
@@ -121,7 +121,7 @@ seriesOptions[1] = {
 //     };
 // }
 seriesOptions[0].visible = true
-seriesOptions[1].visible = true
+// seriesOptions[1].visible = true
 // seriesOptions[lengthData*2-1].visible = true
 
 Highcharts.chart('container1', {
@@ -154,32 +154,33 @@ Highcharts.chart('container1', {
 
     yAxis: [{ // Primary yAxis
         labels: {
-            format: '{value}%',
+            format: '{value}',
             style: {
                 color: Highcharts.getOptions().colors[1]
             }
         },
         title: {
-            text: 'IPN31152N',
+            text: 'đơn vị: million gallons',
             style: {
                 color: Highcharts.getOptions().colors[1]
             }
         }
-    }, { // Secondary yAxis
-        title: {
-            text: 'changes',
-            style: {
-                color: Highcharts.getOptions().colors[0]
-            }
-        },
-        labels: {
-            format: '{value} %',
-            style: {
-                color: Highcharts.getOptions().colors[0]
-            }
-        },
-        opposite: true
-    }],
+    }], 
+    // { // Secondary yAxis
+    //     title: {
+    //         text: 'changes',
+    //         style: {
+    //             color: Highcharts.getOptions().colors[0]
+    //         }
+    //     },
+    //     labels: {
+    //         format: '{value} %',
+    //         style: {
+    //             color: Highcharts.getOptions().colors[0]
+    //         }
+    //     },
+    //     opposite: true
+    // }],
 
     legend: {
         enabled: true
@@ -206,3 +207,4 @@ Highcharts.chart('container1', {
     // },
     series: seriesOptions,
 });
+
