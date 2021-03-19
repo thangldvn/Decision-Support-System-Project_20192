@@ -2,7 +2,7 @@ asgiref==3.2.3
 beautifulsoup4==4.8.2
 Django==3.0.3
 django-livereload-server==0.3.2
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 livereload==2.6.1
 numpy==1.18.1
 pandas==1.0.1
